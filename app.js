@@ -1,50 +1,37 @@
-// let myName = "nico";
 
-// myName = "nicolas";
+// 2.7 ~ 2.8 Functions part
 
-// console.log("your new name is " + myName);
+// Functions 은 비슷한코드를 반복적으로 적지않고 더욱 적은 코드를 이용하여 
+// 더욱 효율적으로 코딩을 할수있게 해주는 것
 
+function sayHello(nameOfperson, age) { // 인자이름은 아무렇게해도 상관없긴하다.
+    console.log("Hello my name is " + nameOfperson + " my age is " + age);
+}
 
-
-// Array(배열)
-
-
-const dayofweek = ["mon", "tue", "wed", "thu", "fri", "sat"];
-
-
-// Get item from array
-// console.log(dayofweek[5]);
-
-//add one more day to the array
-
-// dayofweek.push("sun");
-
-// Object
+sayHello("nico", 10); // 속성을 보내줌
+sayHello("dal", 23);
+sayHello("lynn", 21);
 
 
-//이렇게 만드는 방식도 있다. 다만 비효율적임
-const playerName = "nico";
-const playerPoints = 121212;
-const playerHandsome = false;
-const playerFat = "little bit";
+
+function plus(firstnumber, secondnumber) { // 더하기 함수
+    console.log(firstnumber + secondnumber);
+}
+
+plus(1, 3);
 
 
-//
+function divide(a, b) { //나누기 함수
+    console.log(a / b);
+}
+divide(60, 8);
 
 const player = {
-    name: "nico",
-    points: 10,
-    fat: true,
-};
+    name: "daon",
+    sayHello: function(otherPersonName) {
+        console.log("hello! " + otherPersonName + " Nice to meet you!");
+    }
+}
 
-// player 접근방법
-console.log(player); 
-console.log(player["name"]);
 console.log(player.name);
-
-
-player.name
-player.lastName = "potato"; // 오브젝트 추가하는 방법 
-
-player.fat = false; // player 속성은 변경이 가능하다 단 전체를 바꾸는건 불가능
-console.log(player); 
+player.sayHello("lynn");
