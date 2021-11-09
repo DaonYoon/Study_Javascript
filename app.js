@@ -1,36 +1,75 @@
-// 2.13 ~ 2.15 Conditionals IF문
+//3.0 ~ 3.6  The Document Object ~ EVENT , CSS in javascript
+
+// JS로h1 설정가능
+//document.title = "hello! From Js";
 
 
- // 이방법은 잘안씀(오래된 방식) 그이유는 코드가 이쁘지않고 css적용 불가능함
- //const age = prompt("how old are you?");
-// console.log(typeof age); type 확인방법
+
+// const title = document.getElementById("title");  //title이란 변수에 id가 title인 html 설정
+
+// title.innerText = "Got You!" // 안에 글자 got you로 수정
+
+// console.log(title.className); // title의 클래스 이름
+
+// const title = document.querySelector("div.hello:first-child h1");
+
+// const title = document.querySelectorAll(".hello h1"); All이 붙으면 모든걸 찾아줌
+
+// console.log(title);
+
+// title.style.color = "blue";
+
+const h1 = document.querySelector("div.hello:first-child h1");
 
 
-//parseInt(age);  String을 int로 변환함
+
+// function handletitleClick() { //클릭함수 생성 
+//    h1.style.color = "blue"; //호출되면 실행
+// }
+
+// function handlemouseEnter() { //마우스 올릴떄 실행되는 함수
+// h1.innerText = "Mouse is Here!";
+
+// }
+// function handlemouseleave(){  // 마우스 내릴때 실행되는 함수
+// h1.innerText = "Mouse is Gone!";
+// h1.style.color ="black";
+// }
+// function handleWindowresize() {  //윈도우 사이즈 바끼면 실행
+//     document.body.style.background ="skyblue";
+// }
+// function handlewindowcopy() {  // 복사할시 실행
+//     alert("Copier!");
+// }
+
+// function handlewindowoffline() {   //와이파이꺼지면
+//     alert("S O S We are offline!");
+// }
+// function handlewindowonline() {  //다시켜지면
+//     alert("All good!");
+// }
+
+// //h1.addEventListener("click", handletitleClick); // 이벤트호출 클릭이되면 뒤에 함수 실행
+// h1.onclick = handletitleClick; // 이런방식으로도 호출가능함 자기 편한대로 하멷뇜
+
+// h1.onmouseenter = handlemouseEnter;
+// h1.onmouseleave = handlemouseleave;
 
 
-// 받는값을 숫자로 변환 숫자가아닐경우 NaN이뜸 (Not of Number)
-//const age = parseInt( prompt("How old are you?"));
 
-// console.log(age);
+// window.addEventListener("resize", handleWindowresize);
+// window.addEventListener("copy", handlewindowcopy);
+// window.addEventListener("offline", handlewindowoffline);
+// window.addEventListener("online", handlewindowonline);
 
-const age = parseInt( prompt("How old are you?"));
-console.log(isNaN(age));
-
-if(isNaN(age)){ //숫자가 아닐경우 해당
-    console.log("please write a number");
+function handlemouseEnter() {
+    const currentcolor = h1.style.color;
+    let newcolor;
+   if (currentcolor === "blue"){  // h1 컬러가 블루일경우 
+       newcolor = "tomato";   // 컬러를 토마토로바꿔라
+   } else {                         // 그게아니라면
+      newcolor = "blue";      // 블루로 바꿔라
+   }
+   h1.style.color = newcolor;
 }
-else if(age < 18 ) {  //18살보다 작을떄 해당
-    console.log("your too young");
-}
-else if(age >= 18 && 30 >= age) {  //18살 이상이거나 30살 이하 둘다 충족할때 
-    console.log("You so nice age!");
-}
-else if(age < 0 || age > 100){   // 0살보다 작거나 100살보다 많으면 해당 
-    console.log("your age is ..... sorry");
-}
-//else 는 선택적사항 꼭 넣어야 하는건 아님
-
-if((a && b) || (c && d)) {  // 뒤에꺼부터 계산됨 C , D 가 트루, a , b 가 트루, 또 둘중하나가 트루면 작동
-
-}
+h1.onclick = handlemouseEnter;
